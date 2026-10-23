@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jacoblittle.net/sitemap.xml
