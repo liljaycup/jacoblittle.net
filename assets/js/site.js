@@ -10,7 +10,26 @@
     var prev = document.querySelector('[data-prev]');
     var next = document.querySelector('[data-next]');
     var region = document.querySelector('[data-carousel]');
-    var i = 0, timer = null, paused = false;
+    var i = 0, timer = null, paused = false, open = false;
+
+    function setOpen(li, on) {
+      var btn = li.querySelector('[data-more]');
+      if (!btn) return;
+      li.querySelector('blockquote.short').hidden = on;
+      li.querySelector('blockquote.long').hidden = !on;
+      var s = li.querySelector('.cred.short'), l = li.querySelector('.cred.long');
+      if (s && l) { s.hidden = on; l.hidden = !on; }
+      btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+      btn.textContent = on ? 'Show less' : 'Full review';
+    }
+    items.forEach(function (li) {
+      var btn = li.querySelector('[data-more]');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        open = btn.getAttribute('aria-expanded') !== 'true';
+        setOpen(li, open);
+      });
+    });
     var DELAY = 12000;
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -26,7 +45,9 @@
 
     function show(n) {
       i = (n + items.length) % items.length;
+      open = false;
       items.forEach(function (li, k) {
+        setOpen(li, false);
         var on = k === i;
         li.classList.toggle('is-active', on);
         li.setAttribute('aria-hidden', on ? 'false' : 'true');
@@ -36,7 +57,7 @@
     function restart() {
       clearInterval(timer);
       if (reduce) return;
-      timer = setInterval(function () { if (!paused) show(i + 1); }, DELAY);
+      timer = setInterval(function () { if (!paused && !open) show(i + 1); }, DELAY);
     }
     prev.addEventListener('click', function () { show(i - 1); restart(); });
     next.addEventListener('click', function () { show(i + 1); restart(); });

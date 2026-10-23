@@ -131,6 +131,15 @@ a:hover { color: var(--accent-hover); }
 .quotes .who .dot { color: var(--accent); }
 .quotes .who .cred { font-weight: 500; color: var(--muted); }
 
+.quotes li { align-items: center; }
+.quotes blockquote.long { max-width: 720px; font-size: clamp(17px, 2.4vw, 21px); line-height: 1.6; text-align: left; }
+.quotes .more {
+  display: none; align-self: center; min-height: 44px; padding: 0 4px; border: 0; border-bottom: 1px solid var(--accent);
+  background: transparent; color: var(--text); cursor: pointer;
+  font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.js .quotes .more { display: inline-block; }
+.quotes .more:hover { color: var(--accent-hover); }
 .carousel-controls { display: none; align-items: center; gap: 14px; }
 .js .carousel-controls { display: flex; }
 .round-btn {
@@ -196,7 +205,7 @@ a:hover { color: var(--accent-hover); }
 .tile:hover { color: var(--text); }
 .tile .frame { overflow: hidden; aspect-ratio: 3 / 4; background: #232A40; }
 .tile img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform 0.5s ease; }
-.tile .frame.contain img { object-fit: contain; }
+.tile .frame.contain img { object-fit: contain; object-position: center; }
 a.tile:hover img, a.tile:focus-visible img { transform: scale(1.04); }
 .tile .title { font-size: clamp(17px, 2.4vw, 21px); line-height: 1.3; }
 .tile .meta { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
