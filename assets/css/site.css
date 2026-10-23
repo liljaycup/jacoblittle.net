@@ -370,17 +370,17 @@ a.tile:hover img, a.tile:focus-visible img { transform: scale(1.04); }
 .schools { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
 .events li, .venues li, .schools li { background: var(--panel); padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; }
 .events .when { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
-.events .where { font-size: 24px; }
+.events .org { font-size: 22px; }
+.events .branch { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
 .events .tba { font-size: 16px; font-style: italic; color: var(--dim); }
 .venues .org, .schools .org { font-size: 21px; }
 .venues .branch { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
 .teach { display: flex; flex-wrap: wrap; gap: clamp(28px, 4vw, 48px); align-items: flex-start; }
 .teach-text { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
 .teach-text p { margin: 0; font-size: clamp(18px, 2.4vw, 20px); line-height: 1.65; color: var(--soft); }
-.teach-photos { flex: 1.4 1 460px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.teach-photos { flex: 1 1 380px; min-width: 0; max-width: 560px; display: grid; gap: 16px; }
 .teach-photos figure { margin: 0; }
 .teach-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-@media (max-width: 520px) { .teach-photos { grid-template-columns: 1fr; } }
 .aside { margin: 0; padding-top: 24px; border-top: 1px solid var(--line); font-size: 18px; color: var(--muted); }
 
 /* Phones: keep the landing page to one screen */
