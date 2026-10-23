@@ -86,8 +86,12 @@ a:hover { color: var(--accent-hover); }
 
 @media (max-width: 560px) {
   .site-header { justify-content: center; text-align: center; }
-  .nav { justify-content: center; gap: 0 20px; }
-  .nav a { font-size: 12px; letter-spacing: 0.12em; }
+  .nav { justify-content: center; gap: 0 16px; }
+  .nav a { font-size: 11.5px; letter-spacing: 0.08em; }
+}
+@media (max-width: 380px) {
+  .nav { gap: 0 11px; }
+  .nav a { font-size: 11px; letter-spacing: 0.04em; }
 }
 
 /* ---------- Buttons ---------- */
@@ -348,4 +352,51 @@ a.tile:hover img, a.tile:focus-visible img { transform: scale(1.04); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- Speaking & Teaching ---------- */
+.speak-main { position: relative; z-index: 1; padding-top: clamp(32px, 6vw, 64px); padding-bottom: 220px; display: flex; flex-direction: column; gap: clamp(48px, 7vw, 72px); }
+.speak-hero { display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 56px); align-items: center; }
+.speak-intro { flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.speak-intro h1 { margin: 0; font-size: clamp(38px, 6vw, 56px); line-height: 1.05; font-weight: 300; letter-spacing: -0.015em; }
+.speak-intro .lede { margin: 0; font-size: clamp(18px, 2.4vw, 21px); line-height: 1.6; color: var(--soft); max-width: 560px; }
+.speak-photo { flex: 1.3 1 440px; min-width: 0; margin: 0 18px 18px 0; position: relative; }
+.speak-photo::before { content: ""; position: absolute; left: 18px; top: 18px; right: -18px; bottom: -18px; border: 2px solid var(--accent); }
+.speak-photo img { position: relative; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.speak-block { display: flex; flex-direction: column; gap: 22px; }
+.events, .venues, .schools { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.events { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.venues { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+.schools { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.events li, .venues li, .schools li { background: var(--panel); padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; }
+.events .when { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.events .where { font-size: 24px; }
+.events .tba { font-size: 16px; font-style: italic; color: var(--dim); }
+.venues .org, .schools .org { font-size: 21px; }
+.venues .branch { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+.teach { display: flex; flex-wrap: wrap; gap: clamp(28px, 4vw, 48px); align-items: flex-start; }
+.teach-text { flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.teach-text p { margin: 0; font-size: clamp(18px, 2.4vw, 20px); line-height: 1.65; color: var(--soft); }
+.teach-photos { flex: 1.4 1 460px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.teach-photos figure { margin: 0; }
+.teach-photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+@media (max-width: 520px) { .teach-photos { grid-template-columns: 1fr; } }
+.aside { margin: 0; padding-top: 24px; border-top: 1px solid var(--line); font-size: 18px; color: var(--muted); }
+
+/* Phones: keep the landing page to one screen */
+@media (max-width: 560px) {
+  .site-header { padding-top: 10px; }
+  .home-main { gap: clamp(8px, 1.8vh, 22px); padding-top: 4px; }
+  .monogram { width: clamp(62px, 11vh, 120px); }
+  .brand-block { gap: clamp(4px, 1vh, 12px); }
+  .home-name { font-size: clamp(15px, 2.2vh, 19px); }
+  .quotes { min-height: 0; }
+  .quotes li { gap: 10px; }
+  .quotes blockquote { font-size: clamp(18px, min(5.4vw, 3vh), 25px); }
+  .quotes .more { min-height: 36px; }
+  .round-btn { width: 40px; height: 40px; }
+  .dots button { height: 40px; }
+  .home-main .btn { min-height: 44px; }
+  .home-foot { margin-top: clamp(6px, 1.5vh, 20px); }
+  .home-foot svg { height: clamp(36px, 7vh, 80px); }
 }
