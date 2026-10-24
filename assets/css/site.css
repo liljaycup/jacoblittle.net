@@ -397,3 +397,22 @@ a.tile:hover img, a.tile:focus-visible img { transform: scale(1.04); }
   .home-foot { margin-top: clamp(6px, 1.5vh, 20px); }
   .home-foot svg { height: clamp(36px, 7vh, 80px); }
 }
+
+/* Longer highlights set a touch smaller so every review fits the same space */
+.quotes blockquote.longish { font-size: 0.86em; }
+.quotes li { font-size: clamp(21px, min(4.2vw, 3.6vh), 34px); }
+.quotes blockquote { font-size: inherit; }
+.quotes blockquote.long { font-size: clamp(17px, 2.3vh, 21px); }
+.quotes blockquote.longish { font-size: 0.84em; }
+.dots button { width: 22px; }
+@media (min-width: 900px) and (min-height: 600px) {
+  .quotes li { font-size: clamp(22px, 3.1vh, 36px); }
+}
+@media (max-width: 560px) {
+  .quotes li { font-size: clamp(18px, min(5.4vw, 3vh), 25px); }
+  .dots { gap: 0; }
+  .dots button { width: 17px; }
+  .dots button span { width: 9px; }
+  .dots button[aria-current="true"] span { width: 16px; }
+  .carousel-controls { gap: 8px; }
+}
